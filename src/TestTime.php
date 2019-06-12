@@ -64,9 +64,9 @@ class TestTime
     {
         $result = (new Carbon)->$name(...$arguments);
 
-        if (!$result instanceof Carbon) {
+        if (! $result instanceof Carbon) {
             return $result;
-        };
+        }
 
         Carbon::setTestNow($result);
 
