@@ -3,8 +3,8 @@
 namespace Spatie\TestTime\Tests;
 
 use Carbon\Carbon;
-use PHPUnit\Framework\TestCase;
 use Spatie\TestTime\TestTime;
+use PHPUnit\Framework\TestCase;
 
 class TestTimeTest extends TestCase
 {
