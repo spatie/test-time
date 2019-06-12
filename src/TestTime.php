@@ -3,6 +3,7 @@
 namespace Spatie\TestTime;
 
 use Carbon\Carbon;
+use InvalidArgumentException;
 
 /**
  * @mixin \Carbon\Carbon
@@ -46,14 +47,16 @@ use Carbon\Carbon;
  */
 class TestTime
 {
-    public static function freeze(Carbon $carbon = null): Carbon
+    public static function freeze(): Carbon
     {
-        $frozenTime = $carbon ?? Carbon::now();
+        $frozenTime = static::getCarbon(func_get_args());
 
         Carbon::setTestNow($frozenTime);
 
         return $frozenTime;
     }
+
+
 
     public function __call($name, $arguments)
     {
@@ -71,5 +74,26 @@ class TestTime
         Carbon::setTestNow($result);
 
         return new TestTime();
+    }
+
+    protected static function getCarbon(array $args): Carbon
+    {
+        if (count($args) === 0) {
+            return Carbon::now();
+        }
+
+        if (count($args) === 1) {
+            if (! $args[0] instanceof Carbon) {
+                throw new InvalidArgumentException('You must pass a Carbon instance to `freeze`');
+            }
+
+            return $args[0];
+        }
+
+        if (count($args) === 2) {
+            return Carbon::createFromFormat($args[0], $args[1]);
+        }
+
+        throw new InvalidArgumentException('You can only pass a maximum of two arguments to `freeze`');
     }
 }

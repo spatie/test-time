@@ -41,6 +41,12 @@ Alternatively you can pass in a carbon instance that will be used as the current
 TestTime::freeze($carbonInstance);
 ```
 
+You can also pass a format and time.
+
+```php
+TestTime::freeze('Y-m-d', '2019-06-12');
+```
+
 You can progress the time with any of the carbon functions starting with `add` or `sub`.
 
 ```php
