@@ -48,7 +48,7 @@ class TestTime
 {
     public static function freeze(Carbon $carbon = null): Carbon
     {
-        $frozenTime = $carbon ?? now();
+        $frozenTime = $carbon ?? Carbon::now();
 
         Carbon::setTestNow($frozenTime);
 
