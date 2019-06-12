@@ -81,6 +81,7 @@ We publish all received postcards [on our company website](https://spatie.be/en/
 ## Credits
 
 - [Freek Van der Herten](https://github.com/freekmurze)
+- [Alex Vanderbist](https://github.com/AlexVanderbist)
 - [All Contributors](../../contributors)
 
 ## Support us
