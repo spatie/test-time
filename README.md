@@ -9,7 +9,6 @@
 [Carbon](https://github.com/briannesbitt/Carbon) is an excellent library to work with time in PHP projects. The `Spatie\TestTime\TestTime` class contains a few functions that under the hood manipulate the time that's considered the current time by Carbon.
 
 ```php
-
 // the flow of time is frozen
 TestTime::freeze();
 
