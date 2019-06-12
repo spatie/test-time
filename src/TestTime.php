@@ -56,8 +56,6 @@ class TestTime
         return $frozenTime;
     }
 
-
-
     public function __call($name, $arguments)
     {
         return $this->__callStatic($name, $arguments);
