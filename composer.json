@@ -20,7 +20,6 @@
         "nesbot/carbon": "^2.19"
     },
     "require-dev": {
-        "larapack/dd": "^1.0",
         "phpunit/phpunit": "^8.2"
     },
     "autoload": {
