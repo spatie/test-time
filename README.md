@@ -1,12 +1,23 @@
-# Very short description of the package
+# A helper to control the flow of time
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/test-time.svg?style=flat-square)](https://packagist.org/packages/spatie/:package_name)
 [![Build Status](https://img.shields.io/travis/spatie/test-time/master.svg?style=flat-square)](https://travis-ci.org/spatie/:package_name)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/test-time.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/:package_name)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/test-time.svg?style=flat-square)](https://packagist.org/packages/spatie/:package_name)
 
+[Carbon](https://github.com/briannesbitt/Carbon) is an excellent library to work with time in PHP projects. The `Spatie\TestTime\TestTime` class contains a few functions that under the hood manipulate the time that's considered the current time by Carbon.
 
-This is where your description should go. Try and limit it to a paragraph or two.
+```php
+
+// the flow of time is frozen
+TestTime::freeze();
+
+// we're now one year in the future
+TestTime::addYear();
+
+// will report the real current year + 1
+$year = (new Carbon())->format('Y');
+```
 
 ## Installation
 
@@ -18,9 +29,27 @@ composer require spatie/test-time
 
 ## Usage
 
-``` php
-$TestTime = new Spatie\TestTime();
-echo $TestTime->echoPhrase('Hello, Spatie!');
+You can freeze the time with:
+
+```php
+TestTime::freeze();
+```
+
+Alternatively you can pass in a carbon instance that will be used as the current time.
+
+```php
+TestTime::freeze($carbonInstance);
+```
+
+You can progress the time with any of the carbon functions starting with `add` or `sub`.
+
+```php
+TestTime::addMinute();
+
+TestTime::subHours(5);
+
+// you can also chain calls
+TestTime::addMonth(3)->addYear();
 ```
 
 ### Testing
