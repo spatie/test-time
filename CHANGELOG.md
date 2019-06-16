@@ -2,6 +2,10 @@
 
 All notable changes to `test-time` will be documented in this file
 
+## 1.1.2 - 2019-06-14
+
+- yet even more methods
+
 ## 1.1.1 - 2019-06-14
 
 - moarrrrr docblocked methods
