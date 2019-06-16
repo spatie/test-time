@@ -80,6 +80,10 @@ use InvalidArgumentException;
  * @method static self addMicrosecond() Add one microsecond to the instance (using date interval).
  * @method static self subMicroseconds(int $value = 1) Sub microseconds (the $value count passed in) to the instance (using date interval).
  * @method static self subMicrosecond() Sub one microsecond to the instance (using date interval).
+ * @method static self addMonths(int $value = 1) Add months (the $value count passed in) to the instance (using date interval).
+ * @method static self addMonth() Add one month to the instance (using date interval).
+ * @method static self subMonths(int $value = 1) Sub months (the $value count passed in) to the instance (using date interval).
+ * @method static self subMonth() Sub one month to the instance (using date interval).
  * @method static self addYears(int $value = 1) Add years (the $value count passed in) to the instance (using date interval).
  * @method static self addYear() Add one year to the instance (using date interval).
  * @method static self subYears(int $value = 1) Sub years (the $value count passed in) to the instance (using date interval).
