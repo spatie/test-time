@@ -8,6 +8,11 @@ use InvalidArgumentException;
 /**
  * @mixin \Carbon\Carbon
  *
+ * @method static self create($year = 0, $month = 1, $day = 1, $hour = 0, $minute = 0, $second = 0, $tz = null) Create a new Carbon instance from a specific date and time.
+ * @method static self createFromDate($year = null, $month = null, $day = null, $tz = null) Create a Carbon instance from just a date. The time portion is set to now.
+ * @method static self createFromTime($hour = 0, $minute = 0, $second = 0, $tz = null) Create a Carbon instance from just a time. The date portion is set to today.
+ * @method static self createFromTimeString($time, $tz = null) Create a Carbon instance from a time string. The date portion is set to today.
+ * @method static self createFromFormat($format, $time, $tz = null) Create a Carbon instance from a specific format.
  * @method static self years() Set current instance year to the given value.
  * @method static self year(int $value) Set current instance year to the given value.
  * @method static self setYears() Set current instance year to the given value.
