@@ -6,7 +6,17 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/test-time.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/test-time)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/test-time.svg?style=flat-square)](https://packagist.org/packages/spatie/test-time)
 
-[Carbon](https://github.com/briannesbitt/Carbon) is an excellent library to work with time in PHP projects. The `Spatie\TestTime\TestTime` class contains a few functions that under the hood manipulate the time that's considered the current time by Carbon.
+* [Installation](#installation)
+* [Usage](#usage)
+* [Testing](#testing)
+* [Changelog](#changelog)
+* [Contributing](#contributing)
+* [Postcardware](#postcardware)
+* [License](#license)
+
+[Carbon](https://github.com/briannesbitt/Carbon) is an excellent library to work with time in PHP projects. 
+The `Spatie\TestTime\TestTime` class contains a few functions that under the hood manipulate the time that's considered the current time by Carbon.
+
 
 ```php
 // the flow of time is frozen
@@ -35,19 +45,19 @@ You can freeze the time with:
 TestTime::freeze();
 ```
 
-Alternatively you can pass in a carbon instance that will be used as the current time.
+Alternatively you can pass in a carbon instance that will be used as the current time:
 
 ```php
 TestTime::freeze($carbonInstance);
 ```
 
-You can also pass a format and time.
+You can also pass a format and time:
 
 ```php
 TestTime::freeze('Y-m-d', '2019-06-12');
 ```
 
-You can progress the time with any of the carbon functions starting with `add` or `sub`.
+You can progress the time with any of the carbon functions starting with `add` or `sub`:
 
 ```php
 TestTime::addMinute();
