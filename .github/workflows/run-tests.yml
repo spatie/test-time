@@ -1,0 +1,33 @@
+name: run-tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [7.2, 7.3, 7.4]
+        carbon: [2.19, 1.26]
+        dependency-version: [prefer-lowest, prefer-stable]
+
+    name: P${{ matrix.php }} - C${{ matrix.carbon }} - ${{ matrix.dependency-version }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache/files
+          key: dependencies-php-${{ matrix.php }}-carbon-${{ matrix.carbon }}-composer-${{ hashFiles('composer.json') }}
+
+      - name: Install dependencies
+        run: |
+          composer require "nesbot/carbon:${{ matrix.carbon }}" --no-interaction --no-update
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+
+      - name: Execute tests
+        run: vendor/bin/phpunit
