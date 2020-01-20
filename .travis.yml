@@ -8,9 +8,13 @@ env:
   matrix:
     - COMPOSER_FLAGS="--prefer-lowest"
     - COMPOSER_FLAGS=""
+    include:
+        - env: CARBON_VERSION=^1.26
+        - env: CARBON_VERSION=^2.19
 
 before_script:
   - travis_retry composer self-update
+  - travis_retry composer require "nesbot/carbon:${{ matrix.laravel }}" --no-interaction --no-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
 
 script:
