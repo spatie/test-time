@@ -1,7 +1,7 @@
 # A helper to control the flow of time
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/test-time.svg?style=flat-square)](https://packagist.org/packages/spatie/test-time)
-[![Build Status](https://img.shields.io/travis/spatie/test-time/master.svg?style=flat-square)](https://travis-ci.org/spatie/test-time)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/test-time/run-tests?label=tests)
 [![StyleCI](https://github.styleci.io/repos/191573579/shield?branch=master)](https://github.styleci.io/repos/191573579)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/test-time.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/test-time)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/test-time.svg?style=flat-square)](https://packagist.org/packages/spatie/test-time)
