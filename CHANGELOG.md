@@ -2,6 +2,10 @@
 
 All notable changes to `test-time` will be documented in this file
 
+## 1.1.3 - 2020-01-22
+
+- support carbon 1.26
+
 ## 1.1.2 - 2019-06-14
 
 - yet even more methods
