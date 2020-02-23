@@ -42,4 +42,12 @@ class TestTimeTest extends TestCase
 
         $this->assertEquals('1979-09-22', Carbon::now()->format('Y-m-d'));
     }
+
+    /** @test */
+    public function it_can_freeze_the_current_time_at_the_start_of_the_second()
+    {
+        TestTime::freezeAtSecond('Y-m-d H:i:s.u', '2019-01-02 03:44:55.667788');
+
+        $this->assertEquals('2019-01-02 03:44:55.000000', (new Carbon)->format('Y-m-d H:i:s.u'));
+    }
 }
