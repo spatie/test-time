@@ -105,6 +105,13 @@ class TestTime
         return $frozenTime;
     }
 
+    public static function freezeAtSecond(): Carbon
+    {
+        $frozenTime = static::getCarbon(func_get_args())->startOfSecond();
+
+        return static::freeze($frozenTime);
+    }
+
     public function __call($name, $arguments)
     {
         return $this->__callStatic($name, $arguments);

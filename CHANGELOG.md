@@ -2,6 +2,14 @@
 
 All notable changes to `test-time` will be documented in this file
 
+## 1.2.0 - 2020-02-23
+
+- add `freezeAtSecond` method (#9)
+
+## 1.1.3 - 2020-01-22
+
+- support carbon 1.26
+
 ## 1.1.2 - 2019-06-14
 
 - yet even more methods
