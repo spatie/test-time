@@ -23,10 +23,10 @@
     ],
     "require": {
         "php": "^7.2",
-        "nesbot/carbon": "^1.26|^2.19"
+        "nesbot/carbon": "^2.19"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.2"
+        "phpunit/phpunit": "^8.2|^9.0"
     },
     "autoload": {
         "psr-4": {
