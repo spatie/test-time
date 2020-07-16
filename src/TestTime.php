@@ -3,6 +3,7 @@
 namespace Spatie\TestTime;
 
 use Carbon\Carbon;
+use Carbon\CarbonImmutable;
 use InvalidArgumentException;
 
 /**
@@ -101,6 +102,7 @@ class TestTime
         $frozenTime = static::getCarbon(func_get_args());
 
         Carbon::setTestNow($frozenTime);
+        CarbonImmutable::setTestNow($frozenTime);
 
         return $frozenTime;
     }
@@ -126,6 +128,7 @@ class TestTime
         }
 
         Carbon::setTestNow($result);
+        CarbonImmutable::setTestNow($result);
 
         return new TestTime();
     }

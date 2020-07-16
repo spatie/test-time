@@ -3,6 +3,7 @@
 namespace Spatie\TestTime\Tests;
 
 use Carbon\Carbon;
+use Carbon\CarbonImmutable;
 use PHPUnit\Framework\TestCase;
 use Spatie\TestTime\TestTime;
 
@@ -15,12 +16,15 @@ class TestTimeTest extends TestCase
 
         TestTime::freeze($now);
         $this->assertEquals('2019-01-02 03:44:55', (new Carbon())->format('Y-m-d H:i:s'));
+        $this->assertEquals('2019-01-02 03:44:55', (new CarbonImmutable())->format('Y-m-d H:i:s'));
 
         TestTime::addYear();
         $this->assertEquals('2020', (new Carbon())->format('Y'));
+        $this->assertEquals('2020', (new CarbonImmutable())->format('Y'));
 
         TestTime::addYear()->addYear();
         $this->assertEquals('2022', (new Carbon())->format('Y'));
+        $this->assertEquals('2022', (new CarbonImmutable())->format('Y'));
     }
 
     /** @test */
@@ -41,6 +45,7 @@ class TestTimeTest extends TestCase
         TestTime::freeze('Y-m-d', '1979-09-22');
 
         $this->assertEquals('1979-09-22', Carbon::now()->format('Y-m-d'));
+        $this->assertEquals('1979-09-22', CarbonImmutable::now()->format('Y-m-d'));
     }
 
     /** @test */
