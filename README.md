@@ -19,6 +19,10 @@ TestTime::addYear();
 $year = (new Carbon())->format('Y');
 ```
 
+## Are you a visual learner?
+
+[In this video](https://www.youtube.com/watch?v=1dJphbcWRxI), you'll learn how we use this package to test time sensitive functionality in [Mailcoach](https://mailcoach.app).
+
 ## Support us
 
 [<img src="https://github-ads.s3.eu-central-1.amazonaws.com/test-time.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/test-time)
