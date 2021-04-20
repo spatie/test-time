@@ -12,7 +12,7 @@ jobs:
         carbon: [2.46]
         dependency-version: [prefer-lowest, prefer-stable]
 
-    name: P${{ matrix.php }} - C${{ matrix.carbon }} - ${{ matrix.dependency-version }}
+    name: P${{ matrix.php }} - ${{ matrix.dependency-version }}
 
     steps:
       - name: Checkout code
