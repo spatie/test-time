@@ -8,21 +8,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [7.2, 7.3, 7.4, 8.0]
-        carbon: [2.19]
+        php: [7.3, 7.4, 8.0]
+        carbon: [2.46]
         dependency-version: [prefer-lowest, prefer-stable]
 
     name: P${{ matrix.php }} - C${{ matrix.carbon }} - ${{ matrix.dependency-version }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
-
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        with:
-          path: ~/.composer/cache/files
-          key: dependencies-php-${{ matrix.php }}-carbon-${{ matrix.carbon }}-composer-${{ hashFiles('composer.json') }}
+        uses: actions/checkout@v2
 
       - name: Install dependencies
         run: |
