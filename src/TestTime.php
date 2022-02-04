@@ -107,6 +107,12 @@ class TestTime
         return $frozenTime;
     }
 
+    public static function unfreeze(): void
+    {
+        Carbon::setTestNow(null);
+        CarbonImmutable::setTestNow(null);
+    }
+
     public static function freezeAtSecond(): Carbon
     {
         $frozenTime = static::getCarbon(func_get_args())->startOfSecond();

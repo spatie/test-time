@@ -55,4 +55,21 @@ class TestTimeTest extends TestCase
 
         $this->assertEquals('2019-01-02 03:44:55.000000', (new Carbon)->format('Y-m-d H:i:s.u'));
     }
+
+    /** @test */
+    public function it_can_unfreeze_time()
+    {
+        TestTime::freeze();
+        $previousTimestamp = Carbon::now()->timestamp;
+
+        sleep(2);
+        $newTimestamp = Carbon::now()->timestamp;
+        $this->assertEquals($previousTimestamp, $newTimestamp);
+
+        TestTime::unfreeze();
+
+        sleep(2);
+        $newTimestamp = Carbon::now()->timestamp;
+        $this->assertNotEquals($previousTimestamp, $newTimestamp);
+    }
 }
