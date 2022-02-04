@@ -2,6 +2,10 @@
 
 All notable changes to `test-time` will be documented in this file
 
+## 1.3.0 - 2022-02-04
+
+Add `unfreeze`
+
 ## 1.2.2 - 2020-11-03
 
 - add support for PHP 8
