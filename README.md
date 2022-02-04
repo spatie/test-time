@@ -58,6 +58,8 @@ You can also pass a format and time.
 TestTime::freeze('Y-m-d', '2019-06-12');
 ```
 
+### Progressing time
+
 You can progress the time with any of the carbon functions starting with `add` or `sub`.
 
 ```php
@@ -67,6 +69,14 @@ TestTime::subHours(5);
 
 // you can also chain calls
 TestTime::addMonth(3)->addYear();
+```
+
+### Unfreezing time
+
+To let time flow naturally again, call  `unfreeze`.
+
+```php
+TestTime::unfreeze();
 ```
 
 ### Testing
