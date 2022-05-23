@@ -110,8 +110,6 @@ class TestTimeTest extends TestCase
         sleep(2);
         $newTimestamp = Carbon::now()->timestamp;
         $this->assertNotEquals($previousTimestamp, $newTimestamp);
-
-
     }
 
     /** @test */
@@ -129,7 +127,5 @@ class TestTimeTest extends TestCase
         sleep(2);
         $newTimestamp = CarbonImmutable::now()->timestamp;
         $this->assertNotEquals($previousTimestamp, $newTimestamp);
-
-
     }
 }
