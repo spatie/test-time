@@ -4,6 +4,7 @@ namespace Spatie\TestTime;
 
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
+use Carbon\CarbonInterface;
 use InvalidArgumentException;
 
 /**
@@ -97,7 +98,7 @@ use InvalidArgumentException;
  */
 class TestTime
 {
-    public static function freeze(): Carbon
+    public static function freeze(): CarbonInterface
     {
         $frozenTime = static::getCarbon(func_get_args());
 
@@ -109,11 +110,11 @@ class TestTime
 
     public static function unfreeze(): void
     {
-        Carbon::setTestNow(null);
-        CarbonImmutable::setTestNow(null);
+        Carbon::setTestNow();
+        CarbonImmutable::setTestNow();
     }
 
-    public static function freezeAtSecond(): Carbon
+    public static function freezeAtSecond(): CarbonInterface
     {
         $frozenTime = static::getCarbon(func_get_args())->startOfSecond();
 
@@ -122,7 +123,7 @@ class TestTime
 
     public function __call($name, $arguments)
     {
-        return $this->__callStatic($name, $arguments);
+        return self::__callStatic($name, $arguments);
     }
 
     public static function __callStatic($name, $arguments)
@@ -136,7 +137,7 @@ class TestTime
         Carbon::setTestNow($result);
         CarbonImmutable::setTestNow($result);
 
-        return new TestTime();
+        return new static();
     }
 
     protected static function getCarbon(array $args): Carbon
