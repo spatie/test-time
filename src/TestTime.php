@@ -98,7 +98,7 @@ use InvalidArgumentException;
  */
 class TestTime
 {
-    /** @var CarbonInterface $carbon */
+    /** @var CarbonInterface|null */
     private static $carbon;
 
     public function __construct(?CarbonInterface $carbon = null)
@@ -125,7 +125,13 @@ class TestTime
 
     public static function immutable(): self
     {
-        self::$carbon = new CarbonImmutable();
+        if (self::$carbon) {
+            self::$carbon = self::$carbon->toImmutable();
+        }
+
+        if (self::$carbon === null) {
+            self::$carbon = new CarbonImmutable();
+        }
 
         return new self();
     }
