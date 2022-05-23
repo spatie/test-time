@@ -26,6 +26,7 @@
         "nesbot/carbon": "^2.54"
     },
     "require-dev": {
+        "phpstan/phpstan": "^1.6",
         "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
@@ -39,6 +40,7 @@
         }
     },
     "scripts": {
+        "analyse": "vendor/bin/phpstan analyse src tests",
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
