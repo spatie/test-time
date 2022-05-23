@@ -72,4 +72,19 @@ class TestTimeTest extends TestCase
         $newTimestamp = Carbon::now()->timestamp;
         $this->assertNotEquals($previousTimestamp, $newTimestamp);
     }
+
+    /** @test */
+    public function it_can_work_with_carbon_immutable()
+    {
+        $now = CarbonImmutable::createFromFormat('Y-m-d H:i:s', '2019-01-02 03:44:55');
+
+        TestTime::immutable()::freeze($now);
+        $this->assertSame('2019-01-02 03:44:55', (new CarbonImmutable())->format('Y-m-d H:i:s'));
+
+        TestTime::addYear();
+        $this->assertSame('2020', (new CarbonImmutable())->format('Y'));
+
+        TestTime::addYear()->addYear();
+        $this->assertSame('2022', (new CarbonImmutable())->format('Y'));
+    }
 }

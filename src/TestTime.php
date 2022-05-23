@@ -98,6 +98,15 @@ use InvalidArgumentException;
  */
 class TestTime
 {
+    /** @var CarbonInterface $carbon */
+    private static $carbon;
+
+    public function __construct(?CarbonInterface $carbon = null)
+    {
+        self::$carbon = $carbon;
+    }
+
+
     public static function freeze(): CarbonInterface
     {
         $frozenTime = static::getCarbon(func_get_args());
@@ -114,6 +123,13 @@ class TestTime
         CarbonImmutable::setTestNow();
     }
 
+    public static function immutable(): self
+    {
+        self::$carbon = new CarbonImmutable();
+
+        return new self();
+    }
+
     public static function freezeAtSecond(): CarbonInterface
     {
         $frozenTime = static::getCarbon(func_get_args())->startOfSecond();
@@ -128,9 +144,9 @@ class TestTime
 
     public static function __callStatic($name, $arguments)
     {
-        $result = (new Carbon)->$name(...$arguments);
+        $result = (self::carbonInstance())->$name(...$arguments);
 
-        if (! $result instanceof Carbon) {
+        if (! $result instanceof CarbonInterface) {
             return $result;
         }
 
@@ -140,24 +156,31 @@ class TestTime
         return new static();
     }
 
-    protected static function getCarbon(array $args): Carbon
+    protected static function getCarbon(array $args): CarbonInterface
     {
         if (count($args) === 0) {
-            return Carbon::now();
+            return self::carbonInstance()::now();
         }
 
+        $carbon = get_class(self::carbonInstance());
+
         if (count($args) === 1) {
-            if (! $args[0] instanceof Carbon) {
-                throw new InvalidArgumentException('You must pass a Carbon instance to `freeze`');
+            if (! $args[0] instanceof Carbon && ! $args[0] instanceof CarbonImmutable) {
+                throw new InvalidArgumentException("You must pass a {$carbon} instance to `freeze`");
             }
 
             return $args[0];
         }
 
         if (count($args) === 2) {
-            return Carbon::createFromFormat($args[0], $args[1]);
+            return self::carbonInstance()::createFromFormat($args[0], $args[1]);
         }
 
         throw new InvalidArgumentException('You can only pass a maximum of two arguments to `freeze`');
+    }
+
+    private static function carbonInstance(): CarbonInterface
+    {
+        return self::$carbon ?? new Carbon();
     }
 }
