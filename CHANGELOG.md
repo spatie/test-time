@@ -2,6 +2,10 @@
 
 All notable changes to `test-time` will be documented in this file
 
+## 1.3.1 - 2023-01-10
+
+- accept timezone parameter
+
 ## 1.3.0 - 2022-02-04
 
 Add `unfreeze`
