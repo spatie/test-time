@@ -162,8 +162,7 @@ class TestTime
         }
 
         if (count($args) === 3) {
-
-            return Carbon::createFromFormat($args[0], $args[1] , $args[2]);
+            return Carbon::createFromFormat($args[0], $args[1], $args[2]);
         }
 
         throw new InvalidArgumentException('You can only pass a maximum of two arguments to `freeze`');
