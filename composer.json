@@ -23,7 +23,7 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "nesbot/carbon": "^2.54"
+        "nesbot/carbon": "^2.63"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.10"
