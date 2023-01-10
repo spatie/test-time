@@ -2,6 +2,10 @@
 
 All notable changes to `test-time` will be documented in this file
 
+## 1.3.2 - 2023-01-10
+
+- fix for latest versions of Carbon
+
 ## 1.3.1 - 2023-01-10
 
 - accept timezone parameter
