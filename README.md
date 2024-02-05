@@ -1,8 +1,7 @@
 # A helper to control the flow of time
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/test-time.svg?style=flat-square)](https://packagist.org/packages/spatie/test-time)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/test-time/run-tests?label=tests)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/test-time.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/test-time)
+[![run-tests](https://github.com/spatie/test-time/actions/workflows/run-tests.yml/badge.svg)](https://github.com/spatie/test-time/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/test-time.svg?style=flat-square)](https://packagist.org/packages/spatie/test-time)
 
 [Carbon](https://github.com/briannesbitt/Carbon) is an excellent library to work with time in PHP projects. The `Spatie\TestTime\TestTime` class contains a few functions that under the hood manipulate the time that's considered the current time by Carbon.
