@@ -2,6 +2,12 @@
 
 All notable changes to `test-time` will be documented in this file
 
+## 1.3.3 - 2024-02-05
+
+- support Carbon 3
+
+**Full Changelog**: https://github.com/spatie/test-time/compare/1.3.2...1.3.3
+
 ## 1.3.2 - 2023-01-10
 
 - fix for latest versions of Carbon
