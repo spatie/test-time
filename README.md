@@ -31,10 +31,10 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 
 ## Installation
 
-You can install the package via composer:
+You can install the package via composer. Probably you'll only need it when developing.
 
 ```bash
-composer require spatie/test-time
+composer require spatie/test-time --dev
 ```
 
 ## Usage
